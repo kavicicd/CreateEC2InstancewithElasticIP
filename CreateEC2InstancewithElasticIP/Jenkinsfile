@@ -13,14 +13,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'kavirajravalji0410', url: 'https://github.com/kavirajravalji0410/CreateEC2InstancewithElasticIP.git']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'kavirajravalji0410', url: 'https://github.com/kavirajravalji0410/CreateEC2Instance__withElasitcIP_Terraform.git']])
             }
         }
         stage("terraform init") {
             steps {
                 script {
                     def terraformPath = 'C:\\terraform_1.5.7_windows_386'
-                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\CreateEC2InstancewithElasticIP'
+                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\CreateEC2Instance__withElasitcIP_Terraform'
                     
                     dir(workspacePath) {
                         // Change directory to your EC2_Instance folder
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     def terraformPath = 'C:\\terraform_1.5.7_windows_386'
-                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\CreateEC2InstancewithElasticIP'
+                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\CreateEC2Instance__withElasitcIP_Terraform'
                     
                     dir(workspacePath) {
                         // Change directory to your EC2_Instance folder
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 script {
                     def terraformPath = 'C:\\terraform_1.5.7_windows_386'
-                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\CreateEC2InstancewithElasticIP'
+                    def workspacePath = 'D:\\Jenkins\\.jenkins\\workspace\\CreateEC2Instance__withElasitcIP_Terraform'
                     def action = params.TerraformAction
                     echo "Terraform action is --> ${action}"
                     
